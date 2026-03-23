@@ -3,17 +3,19 @@ import Joblist from "./components/Joblist.jsx";
 import JobForm from "./components/JobForm.jsx";
 import useJobs from "./hooks/useJobs.js";
 import { useAuth } from "./context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
   const { logout } = useAuth();
   const { jobs, fetchJobs, loading, error } = useJobs();
+  const {navigate} = useNavigate();
   return (
     <div className="app-wrapper">
       <button 
         className="btn-logout" 
         onClick={() => {
           logout();
-          window.location.href = '/login';
+          navigate('/login')
         }}
       >
         Logout
