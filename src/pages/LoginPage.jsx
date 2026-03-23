@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 import { useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,9 +14,9 @@ const LoginPage = () => {
   const handleSubmit = async (e)=>{
     e.preventDefault();
     try{
-        const response = await fetch(import.meta.env.VITE_API_URL.replace('/jobs', '/auth/login'),{
-            method:'POST',
-            headers: {"Content-Type": "application/json" },
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({email, password})
         })
         const data = await response.json()

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 const RegisterPage = () => {
@@ -14,7 +14,7 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        import.meta.env.VITE_API_URL.replace("/jobs", "/auth/register"),
+        `${import.meta.env.VITE_API_URL}/api/auth/register`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
