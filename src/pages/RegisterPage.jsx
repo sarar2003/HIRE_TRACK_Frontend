@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 const RegisterPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ const RegisterPage = () => {
       <div className="auth-card">
         <form onSubmit={handleSubmit}>
           <h2>Register</h2>
-        <br />
+          <br />
           <label htmlFor="name">Full Name</label>
           <input
             id="name"
@@ -45,7 +46,7 @@ const RegisterPage = () => {
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter full name"
           />
-        <br />
+          <br />
           <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -54,7 +55,7 @@ const RegisterPage = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
-        <br />
+          <br />
           <label htmlFor="password">Password</label>
           <input
             id="password"
@@ -63,12 +64,14 @@ const RegisterPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
           />
-        <br />
-        <button type="submit">Register</button>
-        {error && <p>{error}</p>}
+          <br />
+          <button type="submit">Register</button>
+          {error && <p>{error}</p>}
           {error && <p className="error-msg">{error}</p>}
           <div className="auth-footer">
-            <p>Already have an account? <a href="/login">Login</a></p>
+            <p>
+              Already have an account? <Link to="/login">Login</Link>
+            </p>
           </div>
         </form>
       </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+
 import {useState, useEffect} from 'react'
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -61,7 +63,7 @@ const LoginPage = () => {
           <button type="submit">Login</button>
           {error && <p className="error-msg">{error}</p>}
           <div className="auth-footer">
-            <p>No account? <a href="/register">Register</a></p>
+            <p>No account? <Link to="/register">Register</Link></p>
           </div>
         </form>
       </div>
